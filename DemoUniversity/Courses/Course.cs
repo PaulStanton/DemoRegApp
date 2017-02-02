@@ -16,7 +16,7 @@ namespace DemoUniversity.Courses
         private DateTime startTime;
         private int creditHours;
 
-        public Course(string courseName,DateTime startTime, int creditHours, string major = "elective")
+        public Course(string courseName,DateTime startTime, int creditHours=1, string major = "elective")
         {
             this.courseName = courseName;
             this.startTime = startTime;
@@ -96,6 +96,15 @@ namespace DemoUniversity.Courses
             }
             return true; 
         }
-
+        public Student getStudentByID(int id)
+        {
+            var student = studentRoster.Where(x => x.ID == id).FirstOrDefault();
+            return student;
+        }
+        public IEnumerable<Student> getStudentByFullName(string fn)
+        {
+            var results = studentRoster.Where(x => x.FullName == fn);
+            return results;
+        }
     }
 }
