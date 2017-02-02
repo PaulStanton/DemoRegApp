@@ -9,6 +9,10 @@ namespace DemoUniversity
     static public class Global
     {
         public static int maxStudents = 20;
+        public static string CreateFullName(string first, string last)
+        {
+            return ($"{first} {last}");
+        }
 
     }
 

@@ -106,5 +106,9 @@ namespace DemoUniversity.Courses
             var results = studentRoster.Where(x => x.FullName == fn);
             return results;
         }
+        public IEnumerable<Student> getStudentByFullName(string first, string last)
+        {
+            return (getStudentByFullName(Global.CreateFullName(first,last)));
+        }
     }
 }

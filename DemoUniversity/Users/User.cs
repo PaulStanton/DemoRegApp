@@ -44,8 +44,8 @@ namespace DemoUniversity.Users
         {
             get
             {
-                string fullname = $"{firstname}{lastname}";
-                return fullname;
+                string fullname = $"{firstname} {lastname}";
+                return Global.CreateFullName(firstname, lastname);
             }
         }
         public String Password

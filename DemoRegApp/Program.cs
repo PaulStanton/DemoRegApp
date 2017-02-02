@@ -43,7 +43,7 @@ namespace DemoRegApp
             dotnet.AddStudent(summer);
             dotnet.AddStudent(kirk);
 
-            var studentNamedStephen = dotnet.getStudentByFullName("Stephen1");
+            var studentNamedStephen = dotnet.getStudentByFullName("Stephen 1");
             Console.WriteLine(studentNamedStephen.Count());
             Console.ReadLine();
             
