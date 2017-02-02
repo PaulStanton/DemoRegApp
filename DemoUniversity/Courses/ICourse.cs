@@ -12,12 +12,12 @@ namespace DemoUniversity.Courses
 
         bool AddStudent(Student student);
 
-        bool RemoveStudent(int id);
+        bool RemoveStudentByID(int id);
         bool RemoveStudent(Student student);
         bool RemoveStudent(string firstname, string lastname);
         
         bool isFull { get;}
-        List<Student> GetStudentRoster();
+      //  List<Student> GetStudentRoster();
         bool AddStudents(List<Student> roster);
 
         int RosterCount { get; } 

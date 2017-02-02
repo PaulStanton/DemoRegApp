@@ -29,9 +29,11 @@ namespace DemoRegApp
             Student summer = new Student("Summer", "a", "pwd", "9@9.com", 9);
             Student kirk = new Student("Stephen", "1", "pwd", "10@10.com", 10);
 
-
-
             Course dotnet = new Course("dotnet", new DateTime());
+            Administrator a1 = Administrator.GetInstance;
+            dotnet.cr = a1.ChangeCourseStatus;
+            #region addStudents
+;
             dotnet.AddStudent(paul);
             dotnet.AddStudent(mike);
             dotnet.AddStudent(stephen);
@@ -42,11 +44,37 @@ namespace DemoRegApp
             dotnet.AddStudent(erik);
             dotnet.AddStudent(summer);
             dotnet.AddStudent(kirk);
+            dotnet.AddStudent(paul);
+            dotnet.AddStudent(mike);
+            dotnet.AddStudent(stephen);
+            dotnet.AddStudent(chris);
+            dotnet.AddStudent(devonte);
+            dotnet.AddStudent(alain);
+            dotnet.AddStudent(antone);
+            dotnet.AddStudent(erik);
+            dotnet.AddStudent(summer);
+            dotnet.AddStudent(kirk);
+#endregion addStudents
 
             var studentNamedStephen = dotnet.getStudentByFullName("Stephen 1");
-            Console.WriteLine(studentNamedStephen.Count());
+            Console.WriteLine(dotnet.RosterCount);
+            dotnet.RemoveStudentByID(10);
+            Console.WriteLine(dotnet.RosterCount);
+            if (dotnet.getStudentByID(10)==null)
+            {
+                Console.WriteLine("Student Not Found");
+            }
+             studentNamedStephen = dotnet.getStudentByFullName("Stephen 1");
+            Console.WriteLine(dotnet.RosterCount);
             Console.ReadLine();
             
         }
+
+  /*      private static bool CloseCourse(Course thisCourseToClose)
+        {
+            thisCourseToClose.isClosed = true;
+            Console.WriteLine("Registration for this course is now closed");
+            return true;
+        } */
     }
 }
