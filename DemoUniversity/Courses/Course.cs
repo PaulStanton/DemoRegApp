@@ -1,0 +1,101 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DemoUniversity.Users;
+
+namespace DemoUniversity.Courses
+{
+    public class Course : ICourse
+
+    {
+        private string courseName= "";
+        private string major;
+        private List<Student> studentRoster = new List<Student>();
+        private DateTime startTime;
+        private int creditHours;
+
+        public Course(string courseName,DateTime startTime, int creditHours, string major = "elective")
+        {
+            this.courseName = courseName;
+            this.startTime = startTime;
+            this.creditHours = creditHours;
+        }
+        public bool isFull
+        {
+            get
+            {
+                return studentRoster.Count == Global.maxStudents;
+            }
+
+        }
+        public string CourseName
+        {
+            get
+            {
+                return courseName;
+            }
+        }
+        public int RosterCount
+        {
+            get
+            {
+                return studentRoster.Count;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+        public bool AddStudent(Student student)
+        {
+            SpaceCheck(studentRoster.Count + 1);
+            studentRoster.Add(student);
+            return true;
+        }
+
+        public bool AddStudents(List<Student> roster)
+        {
+            SpaceCheck(roster.Count + studentRoster.Count);
+            foreach (Student item in roster)
+            {
+                AddStudent(item);
+            }
+            return true;
+        }
+
+        
+        public List<Student> GetStudentRoster()
+        {
+            return studentRoster;
+        }
+
+        public bool RemoveStudent(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveStudent(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveStudent(string firstname, string lastname)
+        {
+            throw new NotImplementedException();
+        }
+        private bool SpaceCheck(int countDracula)
+        {
+            
+            if (countDracula > Global.maxStudents)
+            {
+                throw new Exception(Errors.notEnoughSpace);
+            }
+            return true; 
+        }
+
+    }
+}
